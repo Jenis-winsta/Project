@@ -15,17 +15,19 @@
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        background: url(https://img.playbook.com/IZSaaisbuPYRUSQYBZckzA61Px-1dJx2_5pGRp3N4dk/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzRkZmUwYjQ2/LWRhNjAtNDQ2Yy1h/Y2UxLWM0ZTZkMGI3/NTdlMA);
+        /* background: url(https://img.playbook.com/IZSaaisbuPYRUSQYBZckzA61Px-1dJx2_5pGRp3N4dk/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzRkZmUwYjQ2/LWRhNjAtNDQ2Yy1h/Y2UxLWM0ZTZkMGI3/NTdlMA); */
         background-size: cover;
         background-position: center;
+        background-color: gainsboro;
       }
       .wrapper {
         width: 420px;
-        background: transparent;
-        border: 2px solid rgba(255, 255, 255, 0.2);
+        /* background: transparent; */
+        background-color: #fff;
+        border: 2px solid rgba(23, 1, 1, 0.2);
         backdrop-filter: blur(20px);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        color: #fff;
+        color: purple;
         border-radius: 10px;
         padding: 30px 40px;
       }
@@ -46,14 +48,14 @@
         background: transparent;
         border: none;
         outline: none;
-        border: 2px solid rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(208, 7, 244, 0.2);
         border-radius: 40px;
         font-size: 16px;
-        color: #fff;
+        color: purple;
         padding: 20px 45px 20px 20px;
       }
       .input-box input::placeholder {
-        color: #fff;
+        color: purple;
       }
       .input-box i {
         position: absolute;
@@ -73,7 +75,7 @@
         margin-right: 3px;
       }
       .remember-forgot a {
-        color: #fff;
+        color: purple;
         text-decoration: none;
       }
       .remember-forgot a:hover {
@@ -85,11 +87,11 @@
         border-radius: 40px;
         border: none;
         outline: none;
-        background: #fff;
+        background: purple;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         cursor: pointer;
         font-size: 16px;
-        color: #333;
+        color: white;
         font-weight: 600;
       }
       .wrapper .register-link {
@@ -98,7 +100,7 @@
         margin: 20px 0 15px;
       }
       .register-link p a {
-        color: #fff;
+        color: purple;
         text-decoration: none;
         font-weight: 600;
       }
@@ -106,6 +108,16 @@
         text-decoration: underline;
       }
     </style>
+    <script>
+      function togglePasswordVisibility() {
+        const passwordInput = document.getElementById("password");
+        const showPasswordCheckbox = document.getElementById(
+          "showPasswordCheckbox"
+        );
+
+        passwordInput.type = showPasswordCheckbox.checked ? "text" : "password";
+      }
+    </script>
   </head>
   <link
     href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -116,12 +128,33 @@
       <form action="dashboard">
         <h1>Login</h1>
         <div class="input-box">
-          <input type="text" name="username" placeholder="Username" required />
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Username"
+            required
+          />
           <i class="bx bxs-user"></i>
         </div>
         <div class="input-box">
-          <input type="password" name="password" placeholder="password" required />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="password"
+            required
+          />
           <i class="bx bxs-lock-alt"></i>
+        </div>
+        <div class="remember-forgot">
+          <label
+            ><input
+              type="checkbox"
+              id="showPasswordCheckbox"
+              onclick="togglePasswordVisibility()"
+            />Show password
+          </label>
         </div>
         <!-- <div class="remember-forgot">
           <label><input type="checkbox" />Remember me </label>
@@ -129,7 +162,7 @@
         </div> -->
         <button type="submit" class="btn">Login</button>
         <div class="register-link">
-          <p>Dont't have an account? <a href="#"> Register </a></p>
+          <p>Dont't have an account? <a href="register"> Register </a></p>
         </div>
       </form>
     </div>
