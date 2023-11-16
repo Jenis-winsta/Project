@@ -126,7 +126,8 @@
   />
   <body>
     <div class="wrapper">
-      <form action="dashboard">
+      <form action="dashboard" method="post">
+        {% csrf_token %}
         <h1>Register</h1>
         <div class="input-box">
           <input
