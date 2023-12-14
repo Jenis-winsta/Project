@@ -1,6 +1,12 @@
 <html>
   <head>
     <title>Tech app | Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
@@ -10,17 +16,38 @@
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
       }
-      body {
+      /* body {
         display: flex;
+        padding: 100px 200px 20px 20px;
+        display: inline;
+        text-align: center;
         justify-content: center;
         align-items: center;
+        width: 100;
         min-height: 100vh;
-        /* background: url(https://img.playbook.com/IZSaaisbuPYRUSQYBZckzA61Px-1dJx2_5pGRp3N4dk/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzRkZmUwYjQ2/LWRhNjAtNDQ2Yy1h/Y2UxLWM0ZTZkMGI3/NTdlMA); */
         background-size: cover;
         background-position: center;
         background-color: gainsboro;
+      } */
+
+      body {
+        text-align: center;
+        background-color: gainsboro;
       }
+
+      /* .center-box {
+        display: inline-block;
+        padding: 20px;
+        background-color: white;
+        border: 1px solid black;
+      } */
+
       .wrapper {
+        display: inline-block;
+        padding: 20px;
+        /* Additional styling for the box */
+        background-color: white;
+        border: 1px solid black;
         width: 420px;
         /* background: transparent; */
         background-color: #fff;
@@ -123,9 +150,22 @@
     href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
     rel="stylesheet"
   />
-  <body>
+  <body> <br><br>
+    {% for message in messages%}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{message}}
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
     <div class="wrapper">
-      <form method="POST" action="dashboard">
+      <form method="POST" action="login">
         {% csrf_token %}
         <h1>Login</h1>
         <div class="input-box">
@@ -167,5 +207,20 @@
         </div>
       </form>
     </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

@@ -1,9 +1,27 @@
 <html>
   <head>
     <title>Tech app | Register</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+      @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 
       * {
         padding: 0;
@@ -11,17 +29,36 @@
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
       }
-      body {
+      /* body {
         display: flex;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+        align-self: center;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        /* background: url(https://img.playbook.com/IZSaaisbuPYRUSQYBZckzA61Px-1dJx2_5pGRp3N4dk/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzRkZmUwYjQ2/LWRhNjAtNDQ2Yy1h/Y2UxLWM0ZTZkMGI3/NTdlMA); */
         background-size: cover;
         background-position: center;
         background-color: gainsboro;
+      } */
+      body {
+        text-align: center;
+        background-color: gainsboro;
       }
+
+      /* .center-box {
+        display: inline-block;
+        padding: 20px;
+        background-color: white;
+        border: 1px solid black;
+      } */
       .wrapper {
+        display: inline-block;
+        padding: 20px;
+        background-color: white;
+        border: 1px solid black;
         width: 420px;
         /* background: transparent; */
         background-color: #fff;
@@ -109,6 +146,7 @@
         text-decoration: underline;
       }
     </style>
+    <script></script>
     <script>
       function togglePasswordVisibility() {
         const passwordInput = document.getElementById("password");
@@ -119,14 +157,29 @@
         passwordInput.type = showPasswordCheckbox.checked ? "text" : "password";
       }
     </script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
   </head>
   <link
     href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
     rel="stylesheet"
   />
   <body>
+    <br />
+    {% for message in messages%}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{message}}
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
     <div class="wrapper">
-      <form action="dashboard" method="post">
+      <form action="register" method="post">
         {% csrf_token %}
         <h1>Register</h1>
         <div class="input-box">
@@ -141,15 +194,38 @@
         </div>
         <div class="input-box">
           <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            required
+          />
+          <!-- <i class="spa"></i> -->
+          <i class="bi bi-envelope-arrow-down"></i>
+        </div>
+
+        <div class="input-box">
+          <input
             type="password"
             name="password"
             id="password"
-            placeholder="password"
+            placeholder="Password"
             required
           />
           <i class="bx bxs-lock-alt"></i>
         </div>
-        <div class="remember-forgot">
+        <div class="input-box">
+          <input
+            type="password"
+            name="password2"
+            id="password2"
+            placeholder="Repeat password"
+            required
+          />
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+
+        <!-- <div class="remember-forgot">
           <label
             ><input
               type="checkbox"
@@ -157,16 +233,31 @@
               onclick="togglePasswordVisibility()"
             />Show password
           </label>
-        </div>
+        </div> -->
         <!-- <div class="remember-forgot">
           <label><input type="checkbox" />Remember me </label>
           <a href="#">Forgot password?</a>
         </div> -->
         <button type="submit" class="btn">Register</button>
         <div class="register-link">
-          <p>Already have an account? <a href="login"> Login </a></p>
+          <p>Already have an account? <a href="/"> Login </a></p>
         </div>
       </form>
     </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
