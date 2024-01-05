@@ -10,7 +10,12 @@ from django.contrib import messages
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'PurpleTemplate/index.html')
+
+
+# def button_page(request):
+#     return render(request, 'PurpleTemplate/pages/ui-features/buttons.html')
+
 
 def dashboard(request):
     return render(request, 'dashboard.html')
