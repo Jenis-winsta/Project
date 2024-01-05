@@ -8,6 +8,8 @@
       rel="stylesheet"
     />
     <title>Dashboard</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     <style>
       body {
         background-color: #f8f9fa;
@@ -128,20 +130,24 @@
       </div>
     </div>
 
+    
+
+<script>
+  // Function to show/hide content based on the selected tab
+  function showPage(pageId) {
+    $(".content > div").hide();
+    $("#" + pageId).show();
+  }
+
+  // Initial page load (you can set a default page)
+  showPage("page1");
+</script>
+
+
+
     <!-- Bootstrap JS and Popper.js -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-    <script>
-      // Function to show/hide content based on the selected tab
-      function showPage(pageId) {
-        $(".content > div").hide();
-        $("#" + pageId).show();
-      }
-
-      // Initial page load (you can set a default page)
-      showPage("page1");
-    </script>
   </body>
 </html>
