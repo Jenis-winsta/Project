@@ -10,7 +10,11 @@ from django.contrib import messages
 
 
 def index(request):
-    return render(request, 'PurpleTemplate/index.html')
+    if User.is_authenticated:
+        return render(request, 'PurpleTemplate/index.html')
+    else:
+        return redirect('login')
+        
 
 
 # def button_page(request):
@@ -53,7 +57,7 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('dashboard')
+            return redirect('index')
         else:
             messages.info(request, 'Credential Invalid')
             return redirect('login')
