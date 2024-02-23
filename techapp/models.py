@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+
 # db models which converts to db tables
 
 # models.py
@@ -74,3 +75,4 @@ class Course_Outcome(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)    
     def __str__(self):
         return f'{self.code}, {self.course.department}'    
+

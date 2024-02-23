@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'techapp',
     'attainment_status',
     
+
+    'techapp'
+
 ]
 
 MIDDLEWARE = [
@@ -58,7 +61,11 @@ ROOT_URLCONF = 'Project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+
         'DIRS': [BASE_DIR,'template'],
+
+        'DIRS': [BASE_DIR,'Template'],
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

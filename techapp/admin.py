@@ -1,4 +1,5 @@
 from django.contrib import admin
+<<<<<<< HEAD
 from . models import *
 # Register your models here.
 
@@ -16,3 +17,7 @@ admin.site.register(Programme_Specific_Outcome)
 
 admin.site.register(Course)
 admin.site.register(Course_Outcome)
+=======
+
+# Register your models here.
+>>>>>>> origin/main

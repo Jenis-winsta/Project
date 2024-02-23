@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User, auth
@@ -6,9 +7,21 @@ import json
 from .models import *
 from .forms import *
 
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.contrib.auth.models import User, auth
+from django.contrib import messages
+
+
+# Create your views here.
+# def login(request):
+#     return render(request,'login.html')
+
+
 
 def index(request):
     if User.is_authenticated:
+
         return render(request, 'index.html',{
             'techapp': Course.objects.all()
         }) 
@@ -69,6 +82,20 @@ def result(request):
     return render(request, 'result.html', context)
 
 
+    #     return render(request, 'PurpleTemplate/index.html')
+    # else:
+    #     return redirect('login')
+        
+
+
+# def button_page(request):
+#     return render(request, 'PurpleTemplate/pages/ui-features/buttons.html')
+
+
+def dashboard(request):
+    return render(request, 'dashboard.html')
+
+
 def register(request):
     if request.method=='POST':
         username=request.POST['username']
@@ -86,13 +113,19 @@ def register(request):
                 user = User.objects.create_user(username=username,email=email, password=password)
                 user.save()
                 return redirect('login')
+
         else: 
+
             messages.info(request, 'Password not the same')
             return redirect('register')
     else:
         return render(request,'register.html')
 
+
  
+
+
+
 def login(request):
     if request.method=='POST':
         username= request.POST['username']
