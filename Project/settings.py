@@ -40,9 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'techapp',
     'attainment_status',
-    
-
-    'techapp'
 
 ]
 
