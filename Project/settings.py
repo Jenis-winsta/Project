@@ -59,9 +59,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
 
-        'DIRS': [BASE_DIR,'template'],
-
-        'DIRS': [BASE_DIR,'Template'],
+        'DIRS': [BASE_DIR, 'template'],
+        
 
         'APP_DIRS': True,
         'OPTIONS': {
@@ -113,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 

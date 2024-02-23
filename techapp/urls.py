@@ -16,15 +16,6 @@ urlpatterns=[
     path('ajax/load-semesters/', views.load_semesters, name='ajax_load_semesters'),
     path('ajax/load-courses/', views.load_courses, name='ajax_load_courses'),
 
-    
-
-    path('',views.login,name='login'),
-    path('login',views.login,name="login1"),
-    path('dashboard',views.dashboard,name='dashboard'),
-    path('register',views.register,name='register'),
-    path('logout',views.logout, name='logout'),
-    path('index',views.index, name='index'),
-    # path('button_page',views.button_page, name='button_page')
 
 
 ]
