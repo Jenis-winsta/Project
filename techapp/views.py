@@ -32,7 +32,7 @@ def dashboard(request):
     return render(request, 'dashboard.html', context={'peoples'})
     
 def maps(request):
-    years = Year.objects.values('name').distinct().order_by('name')
+    years = Year.objects.values('id').distinct().order_by('id')
     semesters = Semester.objects.values('name').distinct().order_by('name')
     courses = Course.objects.values('name').distinct()      
     code = Course.objects.values('course_code').distinct()  
